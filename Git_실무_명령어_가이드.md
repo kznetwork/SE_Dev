@@ -256,6 +256,14 @@ git clone --branch release --single-branch \
 - `--branch <브랜치명>`: 복제 후 지정한 브랜치를 체크아웃합니다.
 - `--single-branch`: 지정한 브랜치의 기록만 가져옵니다.
 
+```bash
+$ git fetch --all
+for branch in $(git branch -r | grep -v HEAD); do
+  git checkout -b ${branch#origin/} ${branch}
+done
+
+```
+
 ### 6.3 `--branch`만 사용
 
 ```bash
